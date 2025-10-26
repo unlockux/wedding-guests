@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PWA Icon Generator</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        canvas { display: block; margin: 20px 0; border: 1px solid #ccc; }
+        button { 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            margin: 10px 5px;
+            cursor: pointer;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover { background: #5568d3; }
+        .info { 
+            background: #f0f4ff; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 PWA Icon Generator</h1>
+    <div class="info">
+        <p>This will generate the PWA icons (192x192 and 512x512) needed for your manifest.</p>
+        <p>Click the buttons below to download the icons.</p>
+    </div>
+    
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <button onclick="downloadIcon(192)">Download icon-192.png</button>
+    
+    <canvas id="canvas512" width="512" height="512"></canvas>
+    <button onclick="downloadIcon(512)">Download icon-512.png</button>
+
+    <script>
+        const svg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#667eea"/>
+                <circle cx="35" cy="40" r="8" fill="white"/>
+                <circle cx="65" cy="40" r="8" fill="white"/>
+                <path d="M 25 65 Q 50 50 75 65" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+        `;
+
+        function drawIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            const blob = new Blob([svg], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            
+            img.onload = function() {
+                ctx.clearRect(0, 0, size, size);
+                ctx.drawImage(img, 0, 0, size, size);
+                URL.revokeObjectURL(url);
+            };
+            img.src = url;
+        }
+
+        function downloadIcon(size) {
+            const canvas = document.getElementById(`canvas${size}`);
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `icon-${size}.png`;
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        // Draw icons when page loads
+        window.onload = function() {
+            drawIcon('canvas192', 192);
+            drawIcon('canvas512', 512);
+        };
+    </script>
+</body>
+</html>
