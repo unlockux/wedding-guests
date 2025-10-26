@@ -1,0 +1,6 @@
+{
+  "name": "wedding-guests",
+  "version": "1.0.0",
+  "description": "A PWA for managing wedding guests",
+  "type": "module"
+}
