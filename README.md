@@ -61,23 +61,20 @@ php -S localhost:8000
 
 ## Deployment
 
-### Vercel
+📖 **Full deployment guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on deploying to Vercel and setting up Supabase.
+
+### Quick Deploy to Vercel
 
 1. Push your code to GitHub
-2. Import the project in [Vercel](https://vercel.com)
-3. Deploy automatically on every push
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click "Add New Project" and import `wedding-guests`
+4. Deploy! Your app will be live instantly
 
 Or use Vercel CLI:
 ```bash
 npm i -g vercel
 vercel
 ```
-
-### GitHub Pages
-
-1. Push to GitHub
-2. Go to Settings → Pages
-3. Select branch and save
 
 ## Adding PWA Icons
 
@@ -92,23 +89,14 @@ You can use tools like:
 
 ## Future Integration: Supabase
 
-To connect Supabase:
+See [DEPLOYMENT.md](DEPLOYMENT.md) for complete Supabase setup instructions.
 
-1. Create a Supabase project at [supabase.com](https://supabase.com)
-2. Get your project URL and API key
-3. Add environment variables in Vercel
-4. Update the app to use Supabase client
-
-Example structure:
-```javascript
-// supabase.js
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = 'YOUR_SUPABASE_URL'
-const supabaseKey = 'YOUR_SUPABASE_KEY'
-
-export const supabase = createClient(supabaseUrl, supabaseKey)
-```
+Quick start:
+1. Create a project at [supabase.com](https://supabase.com)
+2. Copy your Project URL and anon key
+3. Add to Vercel environment variables
+4. Install the client: `npm install @supabase/supabase-js`
+5. The `supabase.js` file is already set up for you!
 
 ## Project Structure
 
@@ -118,9 +106,13 @@ export const supabase = createClient(supabaseUrl, supabaseKey)
 ├── manifest.json       # PWA manifest
 ├── sw.js              # Service worker
 ├── favicon.svg        # Favicon
+├── supabase.js        # Supabase client configuration
 ├── vercel.json        # Vercel configuration
 ├── package.json       # Project configuration
-└── README.md          # This file
+├── env.example        # Example environment variables
+├── api/               # Vercel serverless functions directory
+├── README.md          # This file
+└── DEPLOYMENT.md      # Deployment & setup guide
 ```
 
 ## Browser Support
