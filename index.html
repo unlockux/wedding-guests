@@ -86,6 +86,11 @@
             }
         }
     </style>
+    <script>
+        // Add your Supabase credentials here
+        window.SUPABASE_URL = 'https://ddhpwfhrxfoklxaatinu.supabase.co';
+        window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
+      </script>
 </head>
 <body>
     <div class="container">
@@ -98,7 +103,18 @@
         </div>
     </div>
     
-    <script>
+    <script type="module">
+        // Load Supabase client
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        
+        // Initialize Supabase
+        const supabase = createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+        
+        // Make supabase available globally for testing
+        window.supabase = supabase;
+        
+        console.log('✅ Supabase initialized:', supabase);
+        
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
