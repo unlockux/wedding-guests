@@ -97,16 +97,17 @@ You can use tools like:
 - [PWA Asset Generator](https://www.pwabuilder.com/imageGenerator)
 - [Favicon.io](https://favicon.io)
 
-## Future Integration: Supabase
+## 🗄️ Supabase Setup
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for complete Supabase setup instructions.
+📖 **Complete setup guide**: See [SUPABASE-SETUP.md](SUPABASE-SETUP.md)
 
-Quick start:
+**Quick setup:**
 1. Create a project at [supabase.com](https://supabase.com)
 2. Copy your Project URL and anon key
-3. Add to Vercel environment variables
-4. Install the client: `npm install @supabase/supabase-js`
-5. The `supabase.js` file is already set up for you!
+3. Create the `guests` table (SQL in the guide)
+4. Add credentials to `index.html` (for GitHub Pages)
+5. Install the client: `npm install @supabase/supabase-js` ✅ (Done!)
+6. The `supabase.js` file is already configured! ✅
 
 ## Project Structure
 
@@ -123,8 +124,9 @@ Quick start:
 ├── api/                             # Vercel serverless functions directory
 ├── .github/workflows/pages.yml      # GitHub Pages workflow
 ├── README.md                        # This file
-├── DEPLOYMENT.md                    # Vercel & Supabase guide
-└── DEPLOYMENT-GITHUB-PAGES.md       # GitHub Pages guide
+├── DEPLOYMENT.md                    # Vercel deployment guide
+├── DEPLOYMENT-GITHUB-PAGES.md       # GitHub Pages guide
+└── SUPABASE-SETUP.md                # Supabase setup guide
 ```
 
 ## Browser Support

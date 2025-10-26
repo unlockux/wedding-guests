@@ -2,5 +2,15 @@
   "name": "wedding-guests",
   "version": "1.0.0",
   "description": "A PWA for managing wedding guests",
-  "type": "module"
+  "type": "module",
+  "main": "supabase.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.76.1"
+  }
 }
