@@ -61,14 +61,24 @@ php -S localhost:8000
 
 ## Deployment
 
-📖 **Full deployment guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on deploying to Vercel and setting up Supabase.
+### Option 1: GitHub Pages (Recommended - Free & Easy)
 
-### Quick Deploy to Vercel
+📖 **Step-by-step guide**: See [DEPLOYMENT-GITHUB-PAGES.md](DEPLOYMENT-GITHUB-PAGES.md)
 
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
-3. Click "Add New Project" and import `wedding-guests`
-4. Deploy! Your app will be live instantly
+**Quick steps:**
+1. Go to repository **Settings** → **Pages**
+2. Select **Source**: GitHub Actions
+3. Push the workflow file (already created)
+4. Your site will be live at: `https://unlockux.github.io/wedding-guests`
+
+### Option 2: Vercel (Also Free)
+
+📖 **Full deployment guide**: See [DEPLOYMENT.md](DEPLOYMENT.md)
+
+**Quick steps:**
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click "Add New Project" and import `wedding-guests`
+3. Deploy!
 
 Or use Vercel CLI:
 ```bash
@@ -102,17 +112,19 @@ Quick start:
 
 ```
 .
-├── index.html          # Main HTML file
-├── manifest.json       # PWA manifest
-├── sw.js              # Service worker
-├── favicon.svg        # Favicon
-├── supabase.js        # Supabase client configuration
-├── vercel.json        # Vercel configuration
-├── package.json       # Project configuration
-├── env.example        # Example environment variables
-├── api/               # Vercel serverless functions directory
-├── README.md          # This file
-└── DEPLOYMENT.md      # Deployment & setup guide
+├── index.html                        # Main HTML file
+├── manifest.json                     # PWA manifest
+├── sw.js                            # Service worker
+├── favicon.svg                      # Favicon
+├── supabase.js                      # Supabase client configuration
+├── vercel.json                      # Vercel configuration
+├── package.json                     # Project configuration
+├── env.example                      # Example environment variables
+├── api/                             # Vercel serverless functions directory
+├── .github/workflows/pages.yml      # GitHub Pages workflow
+├── README.md                        # This file
+├── DEPLOYMENT.md                    # Vercel & Supabase guide
+└── DEPLOYMENT-GITHUB-PAGES.md       # GitHub Pages guide
 ```
 
 ## Browser Support
